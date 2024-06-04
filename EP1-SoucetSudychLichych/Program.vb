@@ -2,18 +2,24 @@ Imports System
 
 Module Program
     Sub Main(args As String())
-        Dim cislo, cislo2, vysledek As Integer
+        Dim cislo1, cislo2 As String
+        Dim cisl, cisl2, vysledek As Integer
         Do
             Console.Write("Napiš èíslo: ")
-            cislo = Console.ReadLine()
+            cislo1 = Console.ReadLine()
             Console.Write("Napiš 2.èíslo: ")
             cislo2 = Console.ReadLine
-            If cislo / 2 = 5 Then
+
+            If Integer.TryParse(cislo1, cisl) And
+                    Integer.TryParse(cislo2, cisl2) Then
+                If cisl >= 0 And cisl2 >= 0 Then
+                    vysledek = cisl + cisl2
+                    Console.WriteLine($"výsledek je: {vysledek}")
+                Else
+                    Console.WriteLine("Zadávej pouze celá èísla!!")
+                End If
+
             End If
-
-            vysledek = cislo + cislo2
-
-            Console.WriteLine($"výsledek tìchto èísel je {vysledek} ")
-        Loop
+                Loop
     End Sub
 End Module
