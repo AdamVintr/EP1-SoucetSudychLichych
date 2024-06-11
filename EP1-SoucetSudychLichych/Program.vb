@@ -16,7 +16,7 @@ Module Program
                     vysledek = cisl + cisl2
                     Console.WriteLine($"výsledek je: {vysledek}")
                 Else
-                    Console.WriteLine("Zadávej pouze celá èísla!!")
+                    Console.WriteLine("Zadávej pouze celá èísla!")
                 End If
 
             End If
