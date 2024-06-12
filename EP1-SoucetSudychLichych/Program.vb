@@ -1,25 +1,43 @@
 Imports System
 
 Module Program
-    Sub Main(args As String())
-        Dim cislo1, cislo2 As String
-        Dim cisl, cisl2, vysledek As Integer
-        Do
-            Console.Write("Napiš èíslo: ")
-            cislo1 = Console.ReadLine()
-            Console.Write("Napiš 2.èíslo: ")
-            cislo2 = Console.ReadLine
+    Sub Main()
+        Dim pocetCisel As Object
+        Console.Clear()
+        Console.ForegroundColor = ConsoleColor.White
+        Console.Write("Kolik èísel chceš? ")
+        pocetCisel = Console.ReadLine
+        If IsNumeric(pocetCisel) = False Then
+            Console.ForegroundColor = ConsoleColor.Red
+            Console.WriteLine("Chyba - nezadali jste èíslo!")
+            Console.ReadKey()
+            Main()
 
-            If Integer.TryParse(cislo1, cisl) And
-                    Integer.TryParse(cislo2, cisl2) Then
-                If cisl >= 0 And cisl2 >= 0 Then
-                    vysledek = cisl + cisl2
-                    Console.WriteLine($"výsledek je: {vysledek}")
-                Else
-                    Console.WriteLine("Zadávej pouze celá èísla!")
-                End If
+        End If
 
+        Dim cistecislo As Integer = pocetCisel
+        If cistecislo <= 0 Then
+            Console.ForegroundColor = ConsoleColor.Red
+            Console.WriteLine("Chyba - nezadali jste kladné èíslo!")
+            Console.ReadKey()
+            Main()
+        End If
+        Dim nahoda As Integer
+        Dim pocetsudych, pocetlichych As Double
+        Console.Clear()
+        For x = 1 To cistecislo
+            nahoda = Rnd() * 1000
+            Console.WriteLine(nahoda)
+            If nahoda Mod 2 = 0 Then
+                pocetsudych += nahoda
+            Else
+                pocetlichych += nahoda
             End If
-                Loop
+        Next
+        Console.ForegroundColor = ConsoleColor.Green
+        Console.WriteLine("Souèet sudých je:" & pocetsudych)
+        Console.WriteLine("Souèet lichch je:" & pocetlichych)
+        Console.ReadKey()
+
     End Sub
 End Module
